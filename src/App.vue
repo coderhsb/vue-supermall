@@ -1,9 +1,25 @@
 <template>
   <div id="app">
-    <h2>我是App组件</h2>
+    <main-tab-bar></main-tab-bar>
   </div>
 </template>
 
-<style>
+<script>
+import MainTabBar from './components/content/MainTabBar'
+export default {
+  name: 'App',
+  components:{
+    MainTabBar
+  },
+  methods: {
+    homeClick(){
+      console.log('click');
+      this.$router.push('/home')
+    }
+  },
+}
+</script>
 
+<style>
+  @import './assets/css/base.css';
 </style>

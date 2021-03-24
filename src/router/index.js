@@ -1,10 +1,34 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+const Home = () => import('@/views/Home.vue')
+import Category from '@/views/Category.vue'
+import Cart from '@/views/Cart.vue'
+import User from '@/views/User.vue'
+
 
 Vue.use(VueRouter)
 
 const routes = [
-  
+  {
+    path: '',
+    redirect: '/home'
+  },
+  {
+    path: '/home',
+    component: Home
+  },
+  {
+    path: '/category',
+    component: Category
+  },
+  {
+    path: '/cart',
+    component: Cart
+  },
+  {
+    path: '/user',
+    component: User
+  }
 ]
 
 const router = new VueRouter({
@@ -12,5 +36,10 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+const VueRouterPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push (to) {
+  return VueRouterPush.call(this, to).catch(err => err)
+}
 
 export default router
