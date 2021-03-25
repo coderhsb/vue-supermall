@@ -9,14 +9,8 @@ import MainTabBar from './components/content/MainTabBar'
 export default {
   name: 'App',
   components:{
-    MainTabBar
-  },
-  methods: {
-    homeClick(){
-      console.log('click');
-      this.$router.push('/home')
-    }
-  },
+    MainTabBar,
+  }
 }
 </script>
 

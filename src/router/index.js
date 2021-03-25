@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-const Home = () => import('@/views/Home.vue')
+const Home = () => import('@/views/home/Home.vue')
 import Category from '@/views/Category.vue'
 import Cart from '@/views/Cart.vue'
 import User from '@/views/User.vue'
