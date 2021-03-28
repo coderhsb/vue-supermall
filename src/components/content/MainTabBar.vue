@@ -1,8 +1,5 @@
 <template>
   <div>
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
     <tab-bar>
       <tab-bar-item path='/home'>
         <template #item_icon>

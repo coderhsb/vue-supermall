@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import less from 'less'
 
+Vue.prototype.$bus = new Vue()
+
 Vue.use(less)
 Vue.config.productionTip = false
 
