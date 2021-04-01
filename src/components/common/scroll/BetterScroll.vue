@@ -22,10 +22,12 @@ BScroll.use(Pullup)
 export default {
   name: "BetterScroll",
   props:{
+    // 监听scroll
     probeType:{
       type: Number,
       default:0
     },
+    // 监听触底
     pullUpLoad:{
       type: Boolean,
       default: false
@@ -44,9 +46,12 @@ export default {
       click:true
     })
 
-    this.bs.on('scroll', ({ y }) => {
-      this.$emit('scrollY',y)
+    if(this.probeType === 2 || this.probeType === 3){
+      this.bs.on('scroll', ({ y }) => {
+        this.$emit('scrollY',y)
     })
+    }
+    
 
     if(this.pullUpLoad){
       this.bs.on('pullingUp', () => {
@@ -77,15 +82,6 @@ export default {
     padding: 20px;
     text-align: center;
     color: #999;
-    // height: 300px;
   }
-  // .loader{
-  //   font-size: 20px;
-  //   width: 1em;
-  //   height: 1em;
-  //   border-radius: 50%;
-  //   position: relative;
-  //   text-indent: -9999em;
-  //   animation: load-effect 1s infinite linear;
-  // }
+ 
 </style>

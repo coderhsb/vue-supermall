@@ -1,6 +1,6 @@
 <template>
   <div class="goods">
-    <goods-item v-for="item in goods" :key="item.link" :goods-item="item">
+    <goods-item v-for="item in goods" :key="item.link" :goods-item="item" @imageLoad="imageLoad">
     </goods-item>
   </div>
 </template>
@@ -18,7 +18,12 @@ export default {
   },
   components:{
     GoodsItem
-  }
+  },
+  methods: {
+    imageLoad(){
+      this.$emit('imageLoad')
+    }
+  },
 }
 </script>
 <style lang="less" scoped>

@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 const Home = () => import('@/views/home/Home.vue')
-import Category from '@/views/Category.vue'
-import Cart from '@/views/Cart.vue'
-import User from '@/views/User.vue'
+const Category = () => import('@/views/category/Category')
+const Cart = () => import('@/views/cart/Cart.vue')
+const User = () => import('@/views/user/User.vue')
+const Detail = () => import('@/views/detail/Detail')
 
 
 Vue.use(VueRouter)
@@ -28,6 +29,10 @@ const routes = [
   {
     path: '/user',
     component: User
+  },
+  {
+    path: '/detail',
+    component: Detail
   }
 ]
 

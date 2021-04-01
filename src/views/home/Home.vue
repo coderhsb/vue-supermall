@@ -27,7 +27,7 @@
       :titleList="['综合','销量','价格']" 
       ref="control2"
       ></tab-control>
-      <goods-list :goods="showType"></goods-list>
+      <goods-list :goods="showType" @imageLoad="imageLoad"></goods-list>
     </better-scroll>
 
     <back-top v-show="isShowTop" @click.native="handleTop"></back-top>
@@ -71,7 +71,6 @@ export default {
       bs: null,
       isShowTop: false,
       isHandleTop: false,
-      timer: null,
       tabControlTop: 0,
       isControlTop: false
     };
@@ -81,14 +80,6 @@ export default {
     this.getHomeGoods("pop");
     this.getHomeGoods("new");
     this.getHomeGoods("sell");    
-  },
-  mounted() {
-    this.$bus.$on('itemImgLoad',()=>{
-      if(this.timer) clearTimeout(this.timer)
-      this.timer = setTimeout(() => {
-        this.$refs.scroll.refresh()
-      }, 100);
-    })
   },
   methods: {
     // 网络请求相关方法 --开始
@@ -112,7 +103,6 @@ export default {
     // 事件监听
     handleTab(index){
       this.typeIndex = index;
-      console.log();
       this.$refs.control1.activeIndex = index;
       this.$refs.control2.activeIndex = index;
     },
@@ -126,6 +116,9 @@ export default {
     isPullUpLoad(){
       this.getHomeGoods(this.currentType)
     },
+    imageLoad(){
+      this.$refs.scroll.refresh()
+    }
   },
   computed:{
     showType(){
@@ -141,10 +134,6 @@ export default {
   .home_nav {
     background-color: var(--color-tint);
     box-shadow: 0 1px 1px var(--color-tint);
-    /* position: fixed;
-    left: 0;
-    right: 0;
-    top: 0; */
   }
   .nav_text {
     color: #fff;
@@ -159,7 +148,6 @@ export default {
     z-index: 9;
   }
   .scroll{
-    /* margin-top: 44px; */
     height: calc(100vh - 93px);
     overflow: hidden;
   }

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive>
+    <keep-alive exclude="Detail,Cart">
       <router-view></router-view>
     </keep-alive>
     <main-tab-bar></main-tab-bar>
@@ -10,6 +10,7 @@
 <script>
 import MainTabBar from './components/content/MainTabBar'
 import './common/iconfont'
+import './common/iconfont1'
 export default {
   name: 'App',
   components:{
@@ -19,5 +20,5 @@ export default {
 </script>
 
 <style>
-  @import './assets/css/base.css';
+@import './assets/css/base.css';
 </style>

@@ -39,7 +39,6 @@ export default {
 <style lang="less" scoped>
 .tab_control {
   display: flex;
-  border-bottom: 2px solid #eee;
   padding: 10px 0;
   background-color: #fff;
   .tab_item {

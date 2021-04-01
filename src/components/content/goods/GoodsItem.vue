@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-item">
-    <img :src="goodsItem.show.img" alt="" @load="imageLoad">
+  <div class="goods-item" @click="handleGoodsItem">
+    <img :src="showImage" alt="" @load="imageLoad">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <div class="floot-wrap">
@@ -8,7 +8,7 @@
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-collect"></use>
         </svg>
-        <span class="goods-sale">{{goodsItem.sale}}</span>
+        <span class="goods-sale">{{goodsItem.cfav}}</span>
       </div>
     </div>
   </div>
@@ -30,16 +30,27 @@ export default {
   },
   methods: {
     imageLoad(){      
-      this.$bus.$emit('itemImgLoad')
+      this.$emit('imageLoad')
+    },
+    handleGoodsItem(){
+      this.$router.push({
+        path: '/detail',
+        query:{
+          id : this.goodsItem.iid
+        }
+      })
     }
   },
+  computed:{
+    showImage(){
+      return this.goodsItem.image || this.goodsItem.show.img
+    }
+  }
 }
 </script>
 <style lang="less" scoped>
   .goods-item{
     width: 50%;
-    // height: 305px;
-    // text-align: center;
     padding-top: 5px;
     padding-left: 6px;
     img{
