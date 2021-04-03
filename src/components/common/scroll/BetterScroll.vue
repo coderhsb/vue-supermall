@@ -16,8 +16,12 @@
 <script>
 import BScroll from '@better-scroll/core'
 import Pullup from '@better-scroll/pull-up'
+import ObserveDOM from '@better-scroll/observe-dom'
+import ObserveImage from '@better-scroll/observe-image'
 
+BScroll.use(ObserveImage)
 BScroll.use(Pullup)
+BScroll.use(ObserveDOM)
 
 export default {
   name: "BetterScroll",
@@ -43,7 +47,9 @@ export default {
     this.bs = new BScroll(this.$refs.wrapper,{
       probeType:this.probeType,
       pullUpLoad: this.pullUpLoad,
-      click:true
+      click:true,
+      observeDOM: true,
+      observeImage: true 
     })
 
     if(this.probeType === 2 || this.probeType === 3){

@@ -2,14 +2,14 @@
   <div class="goods-item" @click="handleGoodsItem">
     <img :src="showImage" alt="" @load="imageLoad">
     <div class="goods-info">
-      <p>{{goodsItem.title}}</p>
-      <div class="floot-wrap">
-        <span class="goods-price">￥{{goodsItem.price}}</span>&nbsp;
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-collect"></use>
-        </svg>
-        <span class="goods-sale">{{goodsItem.cfav}}</span>
-      </div>
+    <p>{{goodsItem.title}}</p>
+    <div class="floot-wrap">
+      <span class="goods-price">￥{{goodsItem.price}}</span>&nbsp;
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-collect"></use>
+      </svg>
+      <span class="goods-sale">{{goodsItem.cfav}}</span>
+    </div>
     </div>
   </div>
 </template>
